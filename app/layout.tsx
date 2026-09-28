@@ -16,8 +16,12 @@ const interDisplay = localFont({
   weight: "400",
 });
 
+const fallbackSiteUrl = process.env.NODE_ENV === "production" ? "https://forgkitt.com" : "http://localhost:3000";
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+const siteUrl = configuredSiteUrl || fallbackSiteUrl;
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(siteUrl),
   title: { default: "Forge — Websites ready to ship", template: "%s — Forge" },
   description: "Complete, conversion-ready website templates. Preview them live, download the source, and ship today.",
   applicationName: "Forge",
@@ -32,7 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" suppressHydrationWarning className={`${inter.variable} ${interDisplay.variable}`}>
       <head><script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('forge-theme');if(t!=='light'&&t!=='dark'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme='light'}})();` }} /></head>
-      <body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "Forge", url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000", description: "Complete website templates for real businesses." }) }} /></body>
+      <body>{children}<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "Forge", url: siteUrl, description: "Complete website templates for real businesses." }) }} /></body>
     </html>
   );
 }
