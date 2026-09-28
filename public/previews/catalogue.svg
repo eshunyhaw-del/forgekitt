@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+  <rect width="1600" height="1000" fill="#f2f0ea"/><path d="M0 105h1600M0 885h1600" stroke="#111" stroke-width="3"/>
+  <g font-family="Arial,sans-serif" fill="#111"><text x="36" y="68" font-size="38" font-weight="900">CATALOGUE—01</text><text x="1228" y="67" font-size="14">SHOP</text><text x="1300" y="67" font-size="14">INDEX</text><text x="1440" y="67" font-size="14">CART [0]</text></g>
+  <rect x="36" y="140" width="800" height="710" fill="#111"/><path d="M208 742 410 255 610 742Z" fill="#f0ff00"/><circle cx="412" cy="468" r="95" fill="#111"/><path d="M368 468h88M412 424v88" stroke="#f0ff00" stroke-width="8"/>
+  <text x="890" y="252" font-family="Arial,sans-serif" font-size="20" font-weight="700" fill="#111">DROP 003 / STRUCTURES</text><text x="890" y="410" font-family="Arial,sans-serif" font-size="96" font-weight="900" letter-spacing="-7" fill="#111">FORM</text><text x="890" y="500" font-family="Arial,sans-serif" font-size="96" font-weight="900" letter-spacing="-7" fill="#111">FOLLOWS</text><text x="890" y="590" font-family="Arial,sans-serif" font-size="96" font-weight="900" letter-spacing="-7" fill="#111">FEELING.</text>
+  <rect x="890" y="690" width="290" height="63" fill="#f0ff00" stroke="#111" stroke-width="2"/><text x="950" y="729" font-family="Arial" font-size="16" font-weight="700" fill="#111">VIEW COLLECTION →</text>
+  <text x="36" y="947" font-family="Arial" font-size="14" fill="#111">DESIGNED IN ACCRA — SHIPPED WORLDWIDE</text><text x="1437" y="947" font-family="Arial" font-size="14" fill="#111">01 / 06</text>
+</svg>

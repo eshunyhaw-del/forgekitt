@@ -1,0 +1,5 @@
+import type { Metadata } from "next";
+import { ContentPage } from "@/components/content-page";
+
+export const metadata: Metadata = { title: "Terms of service", description: "Terms governing Forge accounts, template purchases, downloads, and acceptable use." };
+export default function TermsPage() { return <ContentPage eyebrow="Legal · Updated September 2026" title="Terms of service" intro="These terms explain the basic rules for using Forge and purchasing website templates."><h2>Accounts and purchases</h2><p>You are responsible for accurate account information and for keeping access credentials secure. Prices and included files are shown before purchase.</p><h2>Template use</h2><p>Templates may be used according to the commercial licence. Source files may not be resold, redistributed, or repackaged as competing templates.</p><h2>Service availability</h2><p>We work to keep libraries and downloads available, but maintenance and circumstances outside our control may occasionally interrupt access.</p></ContentPage>; }
