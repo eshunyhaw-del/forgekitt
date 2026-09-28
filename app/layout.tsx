@@ -16,7 +16,7 @@ const interDisplay = localFont({
   weight: "400",
 });
 
-const fallbackSiteUrl = process.env.NODE_ENV === "production" ? "https://forgkitt.com" : "http://localhost:3000";
+const fallbackSiteUrl = process.env.NODE_ENV === "production" ? "https://forgekitt.com" : "http://localhost:3000";
 const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim();
 const siteUrl = configuredSiteUrl || fallbackSiteUrl;
 

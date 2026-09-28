@@ -10,8 +10,8 @@ The application code is wired for Supabase Auth/Postgres/Storage and Paystack Ch
 4. In **Authentication → URL Configuration**, set the site URL and add these redirect URLs:
    - `http://localhost:3000/auth/callback`
    - `http://localhost:3000/auth/update-password`
-   - `https://forgkitt.com/auth/callback`
-   - `https://forgkitt.com/auth/update-password`
+   - `https://forgekitt.com/auth/callback`
+   - `https://forgekitt.com/auth/update-password`
 5. For Google login, enable Google under **Authentication → Providers** and add the Google client ID and secret. Use the Supabase callback URL shown on that provider screen in Google Cloud.
 6. Upload each ZIP to the private `template-files` bucket, then set that product's `file_path` in the `products` table (for example `relay.zip`).
 
@@ -22,7 +22,7 @@ Copy `.env.example` to `.env.local` and replace every placeholder. Keep `.env.lo
 ## 3. Configure Paystack
 
 1. Copy the Paystack **test secret key** into `PAYSTACK_SECRET_KEY` first.
-2. In Paystack's dashboard, set the webhook URL to `https://forgkitt.com/api/paystack/webhook`.
+2. In Paystack's dashboard, set the webhook URL to `https://forgekitt.com/api/paystack/webhook`.
 3. Keep `PAYSTACK_CURRENCY=GHS` unless the account is enabled for another currency.
 4. Make a test purchase and confirm a row appears in both `payment_intents` and `purchases`.
 5. Switch to the live secret only after the complete test flow passes.
