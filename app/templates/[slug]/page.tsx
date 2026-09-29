@@ -25,8 +25,28 @@ export default async function TemplateDetailPage({ params }: Props) {
   if (!template) notFound();
   const related = templates.filter((item) => item.slug !== template.slug).slice(0, 3);
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "";
+  const productLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: `${template.title} website template`,
+    description: template.description,
+    image: siteUrl ? `${siteUrl}${template.image}` : template.image,
+    url: `${siteUrl}/templates/${template.slug}`,
+    category: template.industry,
+    brand: { "@type": "Brand", name: "Forge" },
+    offers: {
+      "@type": "Offer",
+      price: template.price,
+      priceCurrency: process.env.NEXT_PUBLIC_STORE_CURRENCY || "GHS",
+      availability: "https://schema.org/InStock",
+      url: `${siteUrl}/templates/${template.slug}`,
+    },
+  };
+
   return (
     <main className="detail-page">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd) }} />
       <section className="detail-hero dark-section">
         <SiteHeader tone="dark" promo={false} />
         <div className="detail-heading"><div><span className="eyebrow"><i /> {template.industry} / {template.stack}</span><h1>{template.title}</h1></div><p>{template.description}</p></div>
