@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import type { FormEvent, ReactNode } from "react";
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
@@ -8,7 +7,6 @@ import { createClient } from "@/lib/supabase/client";
 type Mode = "signin" | "signup" | "reset" | "update";
 
 export function AuthForm({ children, mode }: { children: ReactNode; mode: Mode }) {
-  const router = useRouter();
   const [message, setMessage] = useState("");
   const [pending, setPending] = useState(false);
   useEffect(() => { if (mode === "update") { try { void createClient().auth.getSession(); } catch { /* setup message appears on submit */ } } }, [mode]);
@@ -26,13 +24,16 @@ export function AuthForm({ children, mode }: { children: ReactNode; mode: Mode }
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
         const requested = new URLSearchParams(location.search).get("next");
-        router.replace(requested?.startsWith("/") && !requested.startsWith("//") ? requested : "/dashboard");
-        router.refresh();
+        const target = requested?.startsWith("/") && !requested.startsWith("//") ? requested : "/dashboard";
+        // Hard navigation so the freshly-set auth cookie is sent with the request
+        // (a client-side push can race the middleware and bounce back to /signin).
+        window.location.assign(target);
+        return;
       } else if (mode === "signup") {
-        const { data: result, error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${location.origin}/auth/callback?next=/dashboard` } });
+        const { data: result, error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${location.origin}/auth/callback?next=/` } });
         if (error) throw error;
-        if (result.session) { router.replace("/dashboard"); router.refresh(); }
-        else setMessage("Check your email to confirm your account, then return to log in.");
+        if (result.session) { window.location.assign("/"); return; }
+        setMessage("Check your email to confirm your account, then return to log in.");
       } else if (mode === "reset") {
         const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${location.origin}/auth/update-password` });
         if (error) throw error;
@@ -41,7 +42,7 @@ export function AuthForm({ children, mode }: { children: ReactNode; mode: Mode }
         const { error } = await supabase.auth.updateUser({ password });
         if (error) throw error;
         setMessage("Password updated. Redirecting to your library…");
-        setTimeout(() => { router.replace("/dashboard"); router.refresh(); }, 700);
+        setTimeout(() => window.location.assign("/dashboard"), 700);
       }
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Something went wrong. Please try again.");
@@ -58,7 +59,7 @@ export function GoogleAuthButton() {
     setPending(true); setMessage("");
     try {
       const supabase = createClient();
-      const { error } = await supabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo: `${location.origin}/auth/callback?next=/dashboard` } });
+      const { error } = await supabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo: `${location.origin}/auth/callback?next=/` } });
       if (error) throw error;
     } catch (error) { setMessage(error instanceof Error ? error.message : "Google sign-in could not start."); setPending(false); }
   }
