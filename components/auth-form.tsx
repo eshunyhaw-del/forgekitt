@@ -6,6 +6,20 @@ import { createClient } from "@/lib/supabase/client";
 
 type Mode = "signin" | "signup" | "reset" | "update";
 
+// Turn any raw error (including technical ones from the auth service) into plain,
+// friendly language. Unknown/technical messages fall back to a safe generic line so
+// developer wording never reaches a customer.
+function friendlyError(raw: string): string {
+  const m = raw.toLowerCase();
+  if (m.includes("invalid login credentials")) return "That email or password isn't right. Please try again.";
+  if (m.includes("already registered") || m.includes("already exists")) return "An account with this email already exists — try logging in instead.";
+  if (m.includes("rate limit") || m.includes("too many")) return "Too many attempts just now. Please wait a minute and try again.";
+  if (m.includes("email") && (m.includes("valid") || m.includes("format"))) return "Please enter a valid email address.";
+  if (m.includes("password")) return raw; // password hints (e.g. length) are already user-friendly
+  if (m.includes("try again") || m.includes("moment")) return raw; // already-friendly messages
+  return "Something went wrong. Please try again.";
+}
+
 export function AuthForm({ children, mode }: { children: ReactNode; mode: Mode }) {
   const [message, setMessage] = useState("");
   const [pending, setPending] = useState(false);
@@ -45,7 +59,7 @@ export function AuthForm({ children, mode }: { children: ReactNode; mode: Mode }
         setTimeout(() => window.location.assign("/dashboard"), 700);
       }
     } catch (error) {
-      setMessage(error instanceof Error ? error.message : "Something went wrong. Please try again.");
+      setMessage(error instanceof Error ? friendlyError(error.message) : "Something went wrong. Please try again.");
     } finally { setPending(false); }
   }
 
@@ -61,7 +75,7 @@ export function GoogleAuthButton() {
       const supabase = createClient();
       const { error } = await supabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo: `${location.origin}/auth/callback?next=/` } });
       if (error) throw error;
-    } catch (error) { setMessage(error instanceof Error ? error.message : "Google sign-in could not start."); setPending(false); }
+    } catch (error) { setMessage(error instanceof Error ? friendlyError(error.message) : "Google sign-in couldn't start. Please try again."); setPending(false); }
   }
   return <><button className="button button-outline button-wide google-button" type="button" onClick={signIn} disabled={pending}><b aria-hidden="true">G</b> {pending ? "Connecting…" : "Continue with Google"}</button>{message && <p className="form-message" role="alert">{message}</p>}</>;
 }

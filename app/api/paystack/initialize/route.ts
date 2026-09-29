@@ -11,17 +11,17 @@ const inputSchema = z.object({ slug: z.string().min(1).max(100).regex(/^[a-z0-9-
 
 export async function POST(request: Request) {
   try {
-    if (!hasSupabaseEnv() || !process.env.SUPABASE_SERVICE_ROLE_KEY || !process.env.PAYSTACK_SECRET_KEY) return NextResponse.json({ error: "Checkout is awaiting backend configuration." }, { status: 503 });
+    if (!hasSupabaseEnv() || !process.env.SUPABASE_SERVICE_ROLE_KEY || !process.env.PAYSTACK_SECRET_KEY) return NextResponse.json({ error: "Payments aren't available right now. Please try again soon." }, { status: 503 });
     const parsed = inputSchema.safeParse(await request.json());
-    if (!parsed.success) return NextResponse.json({ error: "Invalid product." }, { status: 400 });
+    if (!parsed.success) return NextResponse.json({ error: "Something went wrong. Please refresh the page and try again." }, { status: 400 });
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user?.email) return NextResponse.json({ error: "Please log in to continue." }, { status: 401 });
-    if (!(await checkRateLimit("checkout", user.id)).ok) return NextResponse.json({ error: "Too many requests, slow down." }, { status: 429 });
+    if (!(await checkRateLimit("checkout", user.id)).ok) return NextResponse.json({ error: "You're going a little fast — please wait a moment and try again." }, { status: 429 });
     const admin = createAdminClient();
     const { data: product } = await admin.from("products").select("id,slug,price_minor,currency,is_free,published").eq("slug", parsed.data.slug).eq("published", true).single();
-    if (!product) return NextResponse.json({ error: "Product not found." }, { status: 404 });
-    if (product.is_free || product.price_minor <= 0) return NextResponse.json({ error: "This template is free." }, { status: 400 });
+    if (!product) return NextResponse.json({ error: "We couldn't find this template." }, { status: 404 });
+    if (product.is_free || product.price_minor <= 0) return NextResponse.json({ error: "This template is free — no payment needed." }, { status: 400 });
     const reference = `forge-${randomUUID()}`;
     const { error: intentError } = await admin.from("payment_intents").insert({ reference, user_id: user.id, product_id: product.id, amount_minor: product.price_minor, currency: product.currency });
     if (intentError) throw intentError;
