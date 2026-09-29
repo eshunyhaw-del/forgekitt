@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { hasSupabaseEnv } from "@/lib/supabase/env";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 export async function GET(request: Request, { params }: { params: Promise<{ slug: string }> }) {
   if (!hasSupabaseEnv() || !process.env.SUPABASE_SERVICE_ROLE_KEY) return NextResponse.json({ error: "Downloads are awaiting backend configuration." }, { status: 503 });
@@ -10,6 +11,8 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return NextResponse.json({ error: "Please log in to download." }, { status: 401 });
+  const ipFallback = request.headers.get("x-forwarded-for")?.split(",")[0] || "unknown";
+  if (!(await checkRateLimit("download", user.id || ipFallback)).ok) return NextResponse.json({ error: "Too many requests, slow down." }, { status: 429 });
   const admin = createAdminClient();
   const { data: product } = await admin.from("products").select("id,is_free,file_path,published").eq("slug", slug).eq("published", true).single();
   if (!product) return NextResponse.json({ error: "Template not found." }, { status: 404 });

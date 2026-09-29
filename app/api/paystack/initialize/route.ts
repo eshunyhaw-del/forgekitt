@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { paystackRequest } from "@/lib/paystack";
 import { hasSupabaseEnv } from "@/lib/supabase/env";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 const inputSchema = z.object({ slug: z.string().min(1).max(100).regex(/^[a-z0-9-]+$/) }).strict();
 
@@ -16,6 +17,7 @@ export async function POST(request: Request) {
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user?.email) return NextResponse.json({ error: "Please log in to continue." }, { status: 401 });
+    if (!(await checkRateLimit("checkout", user.id)).ok) return NextResponse.json({ error: "Too many requests, slow down." }, { status: 429 });
     const admin = createAdminClient();
     const { data: product } = await admin.from("products").select("id,slug,price_minor,currency,is_free,published").eq("slug", parsed.data.slug).eq("published", true).single();
     if (!product) return NextResponse.json({ error: "Product not found." }, { status: 404 });

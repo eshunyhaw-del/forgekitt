@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight, CheckIcon } from "@/components/icons";
 import { SiteHeader } from "@/components/site-header";
 import { AuthForm, GoogleAuthButton } from "@/components/auth-form";
+import { PasswordField } from "@/components/password-field";
 
 export const metadata: Metadata = {
   title: "Create your account",
@@ -33,7 +34,7 @@ export default function SignUpPage() {
           <GoogleAuthButton />
           <div className="auth-divider"><span>or use email</span></div>
           <label htmlFor="signup-email">Email address<input id="signup-email" type="email" name="email" autoComplete="email" inputMode="email" placeholder="you@company.com" required /></label>
-          <label htmlFor="signup-password">Password<input id="signup-password" type="password" name="password" autoComplete="new-password" placeholder="At least 8 characters" minLength={8} required /></label>
+          <PasswordField id="signup-password" label="Password" autoComplete="new-password" placeholder="At least 8 characters" minLength={8} />
           <div className="form-meta">
             <label className="checkbox"><input type="checkbox" required /> I agree to the <Link href="/terms">Terms</Link> and <Link href="/privacy">Privacy Policy</Link></label>
           </div>
