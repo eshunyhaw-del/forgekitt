@@ -12,7 +12,7 @@ type Mode = "signin" | "signup" | "reset" | "update";
 function friendlyError(raw: string): string {
   const m = raw.toLowerCase();
   if (m.includes("invalid login credentials")) return "That email or password isn't right. Please try again.";
-  if (m.includes("already registered") || m.includes("already exists")) return "An account with this email already exists — try logging in instead.";
+  if (m.includes("already registered") || m.includes("already exists")) return "An account with this email already exists. Try logging in instead.";
   if (m.includes("rate limit") || m.includes("too many")) return "Too many attempts just now. Please wait a minute and try again.";
   if (m.includes("email") && (m.includes("valid") || m.includes("format"))) return "Please enter a valid email address.";
   if (m.includes("password")) return raw; // password hints (e.g. length) are already user-friendly

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContentPage } from "@/components/content-page";
+import { site } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Contact", description: "Contact Forge about templates, licences, purchases, or partnerships." };
-export default function ContactPage() { return <ContentPage eyebrow="Contact" title="How can we help?" intro="Questions about a template, licence, or purchase? Send us a note and include the template name where relevant."><h2>Customer support</h2><p>Email <a href="mailto:hello@forge.example">hello@forge.example</a>. We aim to reply within two business days.</p><h2>Before you write</h2><p>Purchased files will live in <Link href="/dashboard">My library</Link>. Licence coverage is explained on the <Link href="/license">licence page</Link>.</p></ContentPage>; }
+export const metadata: Metadata = { title: "Contact", description: "Contact Forge about templates, licences, purchases, privacy requests, or partnerships." };
+export default function ContactPage() { return <ContentPage eyebrow="Contact" title="How can we help?" intro="Questions about a template, licence, or purchase? Send us a note and include the template name where relevant."><h2>Customer support</h2><p>Email <a href={`mailto:${site.email}`}>{site.email}</a>. We aim to reply within two business days.</p><h2>Who we are</h2><p>{site.legalName} · {site.location}</p><h2>Privacy and legal requests</h2><p>To access, correct or delete your data, or to report an infringement, email the same address from the email on your account. See our <Link href="/privacy">Privacy policy</Link>.</p><h2>Before you write</h2><p>Purchased files live in <Link href="/dashboard">My library</Link>. Licence coverage is explained on the <Link href="/license">licence page</Link>, and refunds on the <Link href="/refunds">refund page</Link>.</p></ContentPage>; }

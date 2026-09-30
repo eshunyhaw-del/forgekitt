@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "@/components/icons";
-import { DirectoryFilters } from "@/components/directory-filters";
+import { DirectorySidebar } from "@/components/directory-sidebar";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TemplateCard } from "@/components/template-card";
@@ -26,13 +26,12 @@ export async function TemplateDirectoryPage({ searchParams, basePath }: { search
   return <main className="catalog-page directory-page">
     <SiteHeader />
     <section className="catalog-hero">
-      <div className="catalog-hero-copy"><span>Template directory · {String(templates.length).padStart(2, "0")} complete builds</span><h1>Find a website made for your business.</h1><p>Pick your industry, preview every page, and launch with production-ready code.</p></div>
-      <form className="catalog-search" action={basePath}><label><span>What are you building?</span><input id="catalog-search-input" name="q" defaultValue={filters.q} placeholder="Restaurant, estate developer, online store…" /></label><button className="button button-dark" type="submit">Search <ArrowRight /></button></form>
+      <div className="catalog-hero-copy"><h1>Find a website made for your business.</h1><p>Choose your industry, look at the design, and download the source code.</p></div>
+      <form className="catalog-search" action={basePath}><label><span>What are you building?</span><input id="catalog-search-input" name="q" defaultValue={filters.q} placeholder="Restaurant, estate developer, online store" /></label><button className="button button-dark" type="submit">Search <ArrowRight /></button></form>
     </section>
-    <DirectoryFilters active={filters} basePath={basePath} />
-    <section className="catalog-browser light-section">
-      <div className="result-meta"><span>{results.length} website{results.length === 1 ? "" : "s"}</span><span>Preview every page · Own the code</span></div>
-      {results.length > 0 ? <div className="template-grid catalog-grid">{results.map((template, index) => <TemplateCard key={template.slug} template={template} priority={index < 3} />)}</div> : <div className="empty-state"><span>00</span><h2>No builds found.</h2><p>Try a broader search or clear the current filters.</p><Link className="button button-dark" href={basePath}>Reset the collection</Link></div>}
+    <details className="mobile-filters"><summary><span className="show-label">Show filters</span><span className="hide-label">Hide filters</span></summary><DirectorySidebar active={filters} basePath={basePath} /></details>
+    <section className="catalog-browser light-section"><div className="catalog-layout"><div className="sidebar-desktop"><DirectorySidebar active={filters} basePath={basePath} /></div><div className="catalog-results">
+            {results.length > 0 ? <div className="template-grid catalog-grid">{results.map((template, index) => <TemplateCard key={template.slug} template={template} priority={index < 3} />)}</div> : <div className="empty-state"><span>00</span><h2>No templates found.</h2><p>Try a broader search or clear the current filters.</p><Link className="button button-dark" href={basePath}>Clear search</Link></div>}</div></div>
     </section>
     <SiteFooter />
   </main>;

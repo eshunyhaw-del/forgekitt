@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { Logo } from "@/components/logo";
+import { site } from "@/lib/site";
 
 export function SiteFooter() {
   return (
@@ -6,18 +8,18 @@ export function SiteFooter() {
       <div className="footer-top">
         <div>
           <Link className="brand brand-footer" href="/">
-            <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
-            <span>FORGE</span>
+            <Logo className="logo-on-dark" />
           </Link>
-          <p>Complete websites for people who are ready to ship.</p>
+          <p>Website templates for businesses.</p>
         </div>
         <div className="footer-links">
           <div><span>Explore</span><Link href="/">All templates</Link><Link href="/?price=free">Free templates</Link><Link href="/?price=paid">Premium templates</Link></div>
           <div><span>Company</span><Link href="/about">About</Link><Link href="/contact">Contact</Link><Link href="/dashboard">My library</Link></div>
-          <div><span>Legal</span><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/license">Licence</Link></div>
+          <div><span>Follow</span><a href={site.youtube} target="_blank" rel="noopener noreferrer me">YouTube</a><a href={site.x} target="_blank" rel="noopener noreferrer me">X (Twitter)</a></div>
+          <div><span>Legal</span><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/license">Licence</Link><Link href="/refunds">Refunds</Link></div>
         </div>
       </div>
-      <div className="footer-bottom"><span>© 2026 Forge</span><span>Build less. Launch more.</span><div><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/license">Licence</Link></div></div>
+      <div className="footer-bottom"><span>© 2026 Forge. All rights reserved.</span><span>One-time price, no subscription.</span><div><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/license">Licence</Link><Link href="/refunds">Refunds</Link></div></div>
     </footer>
   );
 }

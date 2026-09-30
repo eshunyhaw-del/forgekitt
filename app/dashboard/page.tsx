@@ -12,7 +12,7 @@ import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "My templates",
-  description: "Your Forge library — download source, open repos, and preview your templates.",
+  description: "Your Forge library. Download the templates you own.",
   robots: { index: false, follow: false },
 };
 
@@ -42,7 +42,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
             <span className="eyebrow"><i /> Your library</span>
             <h1>My templates.</h1>
           </div>
-          <div><p>Download the source or launch a live preview. Your files stay here forever.</p>{email && <form action="/auth/signout" method="post"><button className="text-button" type="submit">Log out {email}</button></form>}</div>
+          <div><p>Download your templates below. Each ZIP includes a README with the link to the source code. Your purchases stay in your library while your account is active.</p>{email && <form action="/auth/signout" method="post"><button className="text-button" type="submit">Log out {email}</button></form>}</div>
         </div>
       </section>
 
@@ -76,16 +76,16 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
                 </div>
                 <div className="library-actions">
                   <DownloadButton slug={template.slug} />
-                  <Link className="text-link" href={`/templates/${template.slug}`}>Live preview <ArrowUpRight size={12} /></Link>
+                  <Link className="text-link" href={`/templates/${template.slug}`}>View details <ArrowUpRight size={12} /></Link>
                 </div>
               </article>
             ))}
           </div>
         ) : (
           <div className="dashboard-empty">
-            <span className="section-number">[ EMPTY ]</span>
-            <h2>Nothing here yet.</h2>
-            <p>Claim a free template or pick up a premium one to start your library.</p>
+            <span className="section-number">Empty</span>
+            <h2>No templates yet.</h2>
+            <p>Get a free template or buy one to start your library.</p>
             <Link className="button button-dark" href="/">Browse templates <ArrowRight /></Link>
           </div>
         )}

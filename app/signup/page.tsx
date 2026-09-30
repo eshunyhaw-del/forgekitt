@@ -19,16 +19,16 @@ export default function SignUpPage() {
         <section>
           <span className="eyebrow"><i /> Free to start</span>
           <h1>Create your<br />Forge account.</h1>
-          <p>Grab free templates instantly and keep every purchase in one library — yours forever.</p>
+          <p>Grab free templates instantly and keep every purchase in one library.</p>
           <ul className="pricing-cards" style={{ display: "grid", gap: ".8rem", marginTop: "2rem", listStyle: "none", padding: 0 }}>
             <li style={{ display: "flex", gap: ".55rem", alignItems: "center", fontSize: ".82rem", color: "rgba(255,255,255,.8)" }}><CheckIcon /> Instant downloads, no card required</li>
-            <li style={{ display: "flex", gap: ".55rem", alignItems: "center", fontSize: ".82rem", color: "rgba(255,255,255,.8)" }}><CheckIcon /> Full source code &amp; commercial license</li>
+            <li style={{ display: "flex", gap: ".55rem", alignItems: "center", fontSize: ".82rem", color: "rgba(255,255,255,.8)" }}><CheckIcon /> Full source code &amp; a project licence</li>
             <li style={{ display: "flex", gap: ".55rem", alignItems: "center", fontSize: ".82rem", color: "rgba(255,255,255,.8)" }}><CheckIcon /> One library for every template</li>
           </ul>
         </section>
         <AuthForm mode="signup">
           <div>
-            <span className="section-number">[ SIGN UP ]</span>
+            <span className="section-number">Sign up</span>
             <h2>Get started.</h2>
           </div>
           <GoogleAuthButton />
@@ -36,7 +36,7 @@ export default function SignUpPage() {
           <label htmlFor="signup-email">Email address<input id="signup-email" type="email" name="email" autoComplete="email" inputMode="email" placeholder="you@company.com" required /></label>
           <PasswordField id="signup-password" label="Password" autoComplete="new-password" placeholder="At least 8 characters" minLength={8} />
           <div className="form-meta">
-            <label className="checkbox"><input type="checkbox" required /> I agree to the <Link href="/terms">Terms</Link> and <Link href="/privacy">Privacy Policy</Link></label>
+            <label className="checkbox"><input type="checkbox" required /> I agree to the <Link href="/terms">Terms</Link>, <Link href="/license">Licence</Link> and <Link href="/privacy">Privacy Policy</Link>, and I am 18 or older</label>
           </div>
           <button className="button button-primary button-wide" type="submit">Create account <ArrowRight /></button>
           <p className="auth-note">Already have an account? <Link href="/signin">Log in</Link></p>

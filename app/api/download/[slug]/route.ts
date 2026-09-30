@@ -12,7 +12,7 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) return NextResponse.json({ error: "Please log in to download this template." }, { status: 401 });
   const ipFallback = request.headers.get("x-forwarded-for")?.split(",")[0] || "unknown";
-  if (!(await checkRateLimit("download", user.id || ipFallback)).ok) return NextResponse.json({ error: "You're going a little fast — please wait a moment and try again." }, { status: 429 });
+  if (!(await checkRateLimit("download", user.id || ipFallback)).ok) return NextResponse.json({ error: "You're going a little fast. Please wait a moment and try again." }, { status: 429 });
   const admin = createAdminClient();
   const { data: product } = await admin.from("products").select("id,is_free,file_path,published").eq("slug", slug).eq("published", true).single();
   if (!product) return NextResponse.json({ error: "We couldn't find this template." }, { status: 404 });

@@ -17,11 +17,11 @@ export async function POST(request: Request) {
     const supabase = await createClient();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user?.email) return NextResponse.json({ error: "Please log in to continue." }, { status: 401 });
-    if (!(await checkRateLimit("checkout", user.id)).ok) return NextResponse.json({ error: "You're going a little fast — please wait a moment and try again." }, { status: 429 });
+    if (!(await checkRateLimit("checkout", user.id)).ok) return NextResponse.json({ error: "You're going a little fast. Please wait a moment and try again." }, { status: 429 });
     const admin = createAdminClient();
     const { data: product } = await admin.from("products").select("id,slug,price_minor,currency,is_free,published").eq("slug", parsed.data.slug).eq("published", true).single();
     if (!product) return NextResponse.json({ error: "We couldn't find this template." }, { status: 404 });
-    if (product.is_free || product.price_minor <= 0) return NextResponse.json({ error: "This template is free — no payment needed." }, { status: 400 });
+    if (product.is_free || product.price_minor <= 0) return NextResponse.json({ error: "This template is free, so no payment is needed." }, { status: 400 });
     const reference = `forge-${randomUUID()}`;
     const { error: intentError } = await admin.from("payment_intents").insert({ reference, user_id: user.id, product_id: product.id, amount_minor: product.price_minor, currency: product.currency });
     if (intentError) throw intentError;
