@@ -46,6 +46,13 @@ img { display: block; }
 .button:hover { transform: translateY(-2px); }
 .button:disabled { opacity: .45; cursor: not-allowed; transform: none; }
 .form-message, .checkout-message { margin: 0; color: var(--brand); font-size: .75rem; line-height: 1.5; }
+.checkout-preparing { display: grid; min-height: 100svh; place-content: center; justify-items: center; padding: 2rem; text-align: center; }
+.checkout-preparing-mark { margin-bottom: 3rem; color: white; font-size: 1.25rem; font-weight: 800; letter-spacing: -.08em; }
+.checkout-preparing-spinner { width: 42px; height: 42px; margin-bottom: 2rem; border: 2px solid rgba(255,255,255,.16); border-top-color: var(--brand-hot); border-radius: 50%; animation: checkout-spin .8s linear infinite; }
+.checkout-preparing h1 { margin: 1rem 0 .75rem; font-family: var(--font-display), sans-serif; font-size: clamp(2.4rem, 6vw, 5rem); font-weight: 400; letter-spacing: -.055em; }
+.checkout-preparing > p:last-child { max-width: 31rem; margin: 0; color: var(--text-light-muted); line-height: 1.6; }
+@keyframes checkout-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .checkout-preparing-spinner { animation: none; } }
 .setup-notice { display: flex; gap: .75rem 1.5rem; align-items: center; margin: 0 0 1.5rem; padding: 1rem; border: 1px solid rgba(205,4,7,.25); border-radius: 8px; background: rgba(205,4,7,.06); font-size: .78rem; }
 .setup-notice span { color: var(--text-dark-muted); }.setup-notice.success { border-color: rgba(27,130,73,.3); background: rgba(27,130,73,.08); }
 .button:focus-visible, a:focus-visible, input:focus-visible, summary:focus-visible { outline: 2px solid var(--brand-hot); outline-offset: 3px; }
