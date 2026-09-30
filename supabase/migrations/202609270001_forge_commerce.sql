@@ -83,7 +83,7 @@ insert into public.products (slug, title, price_minor, currency, published) valu
   ('relay','Real Estate Developer',4900,'GHS',true),
   ('monument','Sanitary Ware Store',3900,'GHS',true),
   ('loam','Lingerie Boutique',5900,'GHS',true),
-  ('signal','Bakery & Pastry',0,'GHS',true),
+  ('signal','Bakery & Pastry',100,'GHS',true),
   ('northstar','Law Firm',2900,'GHS',true),
   ('catalogue','Online Coach',0,'GHS',true),
   ('afterlight','Restaurant & Lounge',3400,'GHS',true),
@@ -105,3 +105,7 @@ insert into public.products (slug, title, price_minor, currency, published) valu
   ('pharmacy-health','Pharmacy & Health Store',4900,'GHS',true),
   ('security-company','Security Company',3900,'GHS',true)
 on conflict (slug) do update set title = excluded.title, price_minor = excluded.price_minor, currency = excluded.currency, published = excluded.published;
+
+-- Server-only download flow: read published product metadata and record downloads.
+grant select on table public.products to service_role;
+grant insert on table public.download_events to service_role;

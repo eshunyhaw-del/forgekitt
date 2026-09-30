@@ -60,7 +60,7 @@ export const templates: Template[] = [
     category: "E-commerce",
     industry: "Bakery & Pastry",
     stack: "Vanilla JS",
-    price: 0,
+    price: 1,
     description: "A warm, appetising website for cakes, pastries, bread, catering, and custom orders.",
     image: "/previews/signal.svg",
     accent: "#e7ff56",
