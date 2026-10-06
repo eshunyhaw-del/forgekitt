@@ -7,5 +7,5 @@ export const site = {
   location: process.env.NEXT_PUBLIC_BUSINESS_LOCATION?.trim() || "Accra, Ghana",
   youtube: "https://www.youtube.com/@supereasydevs",
   x: "https://x.com/eshunyhaw",
-  updated: "30 September 2026",
+  updated: "6 October 2026",
 };

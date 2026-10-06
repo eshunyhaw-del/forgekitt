@@ -8,7 +8,7 @@ export const industries = [
   "Oil & Gas", "Import & Export", "Coaching & Consulting", "Energy & Solar", "Security Services", "Cleaning & Maintenance", "Manufacturing & Production",
 ];
 
-export const stacks = ["Next.js · TypeScript · Tailwind", "React · Vite · Tailwind", "Astro · Tailwind", "Vanilla JS", "Vue · Nuxt · Tailwind"];
+export const stacks = ["Astro", "Astro · Tailwind", "React · Vite", "React · Vite · Tailwind", "Vanilla JS"];
 
 export const templateTypes = ["SaaS", "Portfolio", "E-commerce", "Studio", "Editorial", "Agency"];
 

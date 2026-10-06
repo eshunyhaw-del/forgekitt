@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
-  <rect width="1600" height="1000" fill="#e9ded0"/><rect x="34" y="30" width="1532" height="940" rx="12" fill="#f5eee6"/>
-  <g font-family="Arial,sans-serif" fill="#2f271f"><text x="70" y="88" font-size="28" letter-spacing="8">LOAM</text><text x="656" y="82" font-size="14">NEW OBJECTS</text><text x="794" y="82" font-size="14">COLLECTIONS</text><text x="928" y="82" font-size="14">STORY</text><text x="1440" y="82" font-size="14">BAG (0)</text></g>
-  <rect x="70" y="130" width="955" height="760" rx="4" fill="#bfa88d"/><ellipse cx="548" cy="704" rx="315" ry="62" fill="#846c56" opacity=".32"/>
-  <path d="M410 700c0-38 24-72 58-88V423c0-48 37-84 84-84h16c48 0 84 36 84 84v189c34 16 58 50 58 88 0 67-61 102-150 102s-150-35-150-102Z" fill="#463c32"/><path d="M505 350c38 28 76 28 114 0" fill="none" stroke="#d3c3ae" stroke-width="4" opacity=".5"/>
-  <text x="1080" y="235" font-family="Arial,sans-serif" font-size="15" letter-spacing="3" fill="#796858">OBJECT 04</text><text x="1075" y="350" font-family="Georgia,serif" font-size="76" fill="#2f271f">The Taro</text><text x="1080" y="404" font-family="Arial,sans-serif" font-size="17" fill="#756557">Hand-shaped stoneware.<br/>Built to be used every day.</text><text x="1080" y="522" font-family="Arial,sans-serif" font-size="30" fill="#2f271f">$128</text>
-  <rect x="1080" y="576" width="400" height="58" rx="2" fill="#2f271f"/><text x="1192" y="612" font-family="Arial,sans-serif" font-size="15" fill="white">ADD TO COLLECTION</text>
-  <path d="M1080 704h400M1080 764h400" stroke="#c8b9a9"/><text x="1080" y="742" font-family="Arial" font-size="13" fill="#746457">MATERIAL &amp; CARE</text><text x="1080" y="802" font-family="Arial" font-size="13" fill="#746457">SHIPPING &amp; RETURNS</text>
-</svg>

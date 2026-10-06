@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ArrowUpRight, CheckIcon } from "@/components/icons";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TemplateCard } from "@/components/template-card";
+import { PreviewMedia } from "@/components/preview-media";
 import { PurchaseButton } from "@/components/purchase-button";
 import { formatPrice, getTemplate, templates } from "@/lib/templates";
 
@@ -51,8 +51,8 @@ export default async function TemplateDetailPage({ params }: Props) {
         <SiteHeader tone="dark" promo={false} />
         <div className="detail-heading"><div><span className="eyebrow"><i /> {template.industry} / {template.stack}</span><h1>{template.title}</h1></div><p>{template.description}</p></div>
         <div className="detail-stage" id="preview" style={{ "--product-accent": template.accent } as React.CSSProperties}>
-          <div className="detail-screen"><Image src={template.image} alt={`${template.title} homepage preview`} fill sizes="92vw" priority /></div>
-          <div className="detail-stage-bar"><span>Homepage / Desktop</span><a href="#preview">View full size <ArrowUpRight size={14} /></a></div>
+          <PreviewMedia className="detail-screen" video={template.video} poster={template.image} alt={`${template.title} homepage preview`} sizes="92vw" priority autoPlay />
+          <div className="detail-stage-bar"><span>Preview recorded from the real template</span><a href="#preview">View preview <ArrowUpRight size={14} /></a></div>
         </div>
       </section>
 
