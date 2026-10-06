@@ -8,3 +8,5 @@ npm-debug.log*
 .preview-work/
 /zips/
 /templates/
+/previews-live/
+/.deploy-logs/

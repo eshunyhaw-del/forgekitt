@@ -125,6 +125,11 @@ export const templates: Template[] = [
   },
 ];
 
+/** Live demo of the real template, hosted on Netlify as forgekitt-<slug>. */
+export function getPreviewUrl(slug: string) {
+  return `https://forgekitt-${slug}.netlify.app`;
+}
+
 export function getTemplate(slug: string) {
   return templates.find((template) => template.slug === slug);
 }

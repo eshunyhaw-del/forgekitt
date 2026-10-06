@@ -7,7 +7,7 @@ import { SiteHeader } from "@/components/site-header";
 import { TemplateCard } from "@/components/template-card";
 import { PreviewMedia } from "@/components/preview-media";
 import { PurchaseButton } from "@/components/purchase-button";
-import { formatPrice, getTemplate, templates } from "@/lib/templates";
+import { formatPrice, getPreviewUrl, getTemplate, templates } from "@/lib/templates";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -52,7 +52,7 @@ export default async function TemplateDetailPage({ params }: Props) {
         <div className="detail-heading"><div><span className="eyebrow"><i /> {template.industry} / {template.stack}</span><h1>{template.title}</h1></div><p>{template.description}</p></div>
         <div className="detail-stage" id="preview" style={{ "--product-accent": template.accent } as React.CSSProperties}>
           <PreviewMedia className="detail-screen" video={template.video} poster={template.image} alt={`${template.title} homepage preview`} sizes="92vw" priority autoPlay />
-          <div className="detail-stage-bar"><span>Preview recorded from the real template</span><a href="#preview">View preview <ArrowUpRight size={14} /></a></div>
+          <div className="detail-stage-bar"><span>Preview recorded from the real template</span><a href={getPreviewUrl(template.slug)} target="_blank" rel="noopener">Open live preview <ArrowUpRight size={14} /></a></div>
         </div>
       </section>
 
@@ -68,7 +68,7 @@ export default async function TemplateDetailPage({ params }: Props) {
           <div><span>One-time purchase</span><strong>{formatPrice(template.price)}</strong></div>
           <p>Source code, every page, and a commercial licence for one project.</p>
           <PurchaseButton slug={template.slug} free={template.price === 0} title={template.title} />
-          <a className="button button-outline button-wide" href="#preview">View preview <ArrowUpRight /></a>
+          <a className="button button-outline button-wide" href={getPreviewUrl(template.slug)} target="_blank" rel="noopener">Live preview <ArrowUpRight /></a>
           <ul><li><CheckIcon /> Instant source access</li><li><CheckIcon /> One project licence (yours or one client&apos;s)</li><li><CheckIcon /> No recurring fees</li></ul>
           <small>Digital product, delivered instantly and non-refundable once downloaded, except as set out in our <Link href="/refunds">refund policy</Link>. By buying you agree to our <Link href="/terms">Terms</Link> and <Link href="/license">Licence</Link>.</small>
         </aside>
