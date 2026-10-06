@@ -20,6 +20,12 @@ function friendlyError(raw: string): string {
   return "Something went wrong. Please try again.";
 }
 
+/** The page to return to after signing in, taken from ?next= (same-site paths only). */
+function safeNext(fallback: string) {
+  const requested = new URLSearchParams(location.search).get("next");
+  return requested?.startsWith("/") && !requested.startsWith("//") ? requested : fallback;
+}
+
 export function AuthForm({ children, mode }: { children: ReactNode; mode: Mode }) {
   const [message, setMessage] = useState("");
   const [pending, setPending] = useState(false);
@@ -37,17 +43,16 @@ export function AuthForm({ children, mode }: { children: ReactNode; mode: Mode }
       if (mode === "signin") {
         const { error } = await supabase.auth.signInWithPassword({ email, password });
         if (error) throw error;
-        const requested = new URLSearchParams(location.search).get("next");
-        const target = requested?.startsWith("/") && !requested.startsWith("//") ? requested : "/dashboard";
+        const target = safeNext("/dashboard");
         // Hard navigation so the freshly-set auth cookie is sent with the request
         // (a client-side push can race the middleware and bounce back to /signin).
         window.location.assign(target);
         return;
       } else if (mode === "signup") {
-        const { data: result, error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${location.origin}/auth/callback?next=/` } });
+        const { data: result, error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${location.origin}/auth/callback?next=${encodeURIComponent(safeNext("/"))}` } });
         if (error) throw error;
-        if (result.session) { window.location.assign("/"); return; }
-        setMessage("Check your email to confirm your account, then return to log in.");
+        if (result.session) { window.location.assign(safeNext("/")); return; }
+        setMessage(safeNext("") ? "Check your email and click the confirmation link. It brings you straight back to finish your purchase." : "Check your email to confirm your account, then return to log in.");
       } else if (mode === "reset") {
         const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo: `${location.origin}/auth/update-password` });
         if (error) throw error;
@@ -73,7 +78,7 @@ export function GoogleAuthButton() {
     setPending(true); setMessage("");
     try {
       const supabase = createClient();
-      const { error } = await supabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo: `${location.origin}/auth/callback?next=/` } });
+      const { error } = await supabase.auth.signInWithOAuth({ provider: "google", options: { redirectTo: `${location.origin}/auth/callback?next=${encodeURIComponent(safeNext("/"))}` } });
       if (error) throw error;
     } catch (error) { setMessage(error instanceof Error ? friendlyError(error.message) : "Google sign-in couldn't start. Please try again."); setPending(false); }
   }

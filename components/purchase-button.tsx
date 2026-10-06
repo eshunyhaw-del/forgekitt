@@ -46,7 +46,7 @@ export function PurchaseButton({ slug, free, title }: { slug: string; free: bool
       const body = await response.json().catch(() => ({}));
       if (response.status === 401) {
         checkoutWindow?.close();
-        router.push(`/signin?next=${encodeURIComponent(`/templates/${slug}`)}`);
+        router.push(`/signup?next=${encodeURIComponent(`/templates/${slug}`)}`);
         return;
       }
       if (!response.ok) {

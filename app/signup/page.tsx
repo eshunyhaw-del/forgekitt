@@ -4,6 +4,7 @@ import { ArrowRight, CheckIcon } from "@/components/icons";
 import { SiteHeader } from "@/components/site-header";
 import { AuthForm, GoogleAuthButton } from "@/components/auth-form";
 import { PasswordField } from "@/components/password-field";
+import { getReturnTemplate, safeNextPath } from "@/lib/templates";
 
 export const metadata: Metadata = {
   title: "Create your account",
@@ -11,15 +12,28 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function SignUpPage() {
+export default async function SignUpPage({ searchParams }: { searchParams: Promise<{ next?: string }> }) {
+  const { next } = await searchParams;
+  const target = getReturnTemplate(next);
+  const query = safeNextPath(next) ? `?next=${encodeURIComponent(safeNextPath(next)!)}` : "";
   return (
     <main className="auth-page dark-section">
       <SiteHeader tone="dark" />
       <div className="auth-grid">
         <section>
-          <span className="eyebrow"><i /> Free to start</span>
-          <h1>Create your<br />Forge account.</h1>
-          <p>Grab free templates instantly and keep every purchase in one library.</p>
+          {target ? (
+            <>
+              <span className="eyebrow"><i /> Almost there</span>
+              <h1>Create your account<br />to continue.</h1>
+              <p>{target.title} is ready for you. Create a free account (it takes under a minute) and you&apos;ll come straight back to finish.</p>
+            </>
+          ) : (
+            <>
+              <span className="eyebrow"><i /> Free to start</span>
+              <h1>Create your<br />Forge account.</h1>
+              <p>Grab free templates instantly and keep every purchase in one library.</p>
+            </>
+          )}
           <ul className="pricing-cards" style={{ display: "grid", gap: ".8rem", marginTop: "2rem", listStyle: "none", padding: 0 }}>
             <li style={{ display: "flex", gap: ".55rem", alignItems: "center", fontSize: ".82rem", color: "rgba(255,255,255,.8)" }}><CheckIcon /> Instant downloads, no card required</li>
             <li style={{ display: "flex", gap: ".55rem", alignItems: "center", fontSize: ".82rem", color: "rgba(255,255,255,.8)" }}><CheckIcon /> Full source code &amp; a project licence</li>
@@ -39,7 +53,7 @@ export default function SignUpPage() {
             <label className="checkbox"><input type="checkbox" required /> I agree to the <Link href="/terms">Terms</Link>, <Link href="/license">Licence</Link> and <Link href="/privacy">Privacy Policy</Link>, and I am 18 or older</label>
           </div>
           <button className="button button-primary button-wide" type="submit">Create account <ArrowRight /></button>
-          <p className="auth-note">Already have an account? <Link href="/signin">Log in</Link></p>
+          <p className="auth-note">Already have an account? <Link href={`/signin${query}`}>Log in</Link></p>
         </AuthForm>
       </div>
     </main>

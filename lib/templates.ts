@@ -22,21 +22,21 @@ export const templates: Template[] = [
     description: "A WhatsApp-first website for land sales, serviced plots, surveying, building construction and equipment rentals.",
     image: "/previews/land-construction.jpg", video: "/previews/land-construction.mp4", accent: "#10b981",
     pages: ["Home", "Land & locations", "Services", "How to buy", "Diaspora buyers", "About", "Contact", "FAQ"],
-    featured: true,
+    featured: true, new: true,
   },
   {
     slug: "luxury-hotel", title: "Luxury Hotel", category: "Editorial", industry: "Hotels & Hospitality", stack: "Astro", price: 999,
     description: "An editorial hotel website with rooms and suites, dining, wellness, experiences and a reservation request panel.",
     image: "/previews/luxury-hotel.jpg", video: "/previews/luxury-hotel.mp4", accent: "#c9a56a",
     pages: ["Home", "Stay", "Dining", "Wellness", "Experiences", "Contact"],
-    featured: true,
+    featured: true, new: true,
   },
   {
     slug: "home-energy", title: "Home Energy Company", category: "Agency", industry: "Energy & Solar", stack: "Astro", price: 999,
     description: "A scroll-choreographed landing page for home batteries, solar and energy products.",
     image: "/previews/home-energy.jpg", video: "/previews/home-energy.mp4", accent: "#f5c518",
     pages: ["One long scroll page"],
-    featured: true,
+    featured: true, new: true,
   },
   {
     slug: "bakery-cafe", title: "Bakery & Cafe", category: "E-commerce", industry: "Bakery & Pastry", stack: "Vanilla JS", price: 0,
@@ -124,6 +124,17 @@ export const templates: Template[] = [
     pages: ["Home", "Work", "Case study", "Services", "About", "Resume", "Writing", "Contact"],
   },
 ];
+
+/** The template a visitor was looking at, from a ?next=/templates/<slug> sign-in redirect. */
+export function getReturnTemplate(next?: string) {
+  const match = next?.match(/^\/templates\/([a-z0-9-]+)\/?$/);
+  return match ? getTemplate(match[1]) : undefined;
+}
+
+/** Same-site path to return to after signing in, or undefined. */
+export function safeNextPath(next?: string) {
+  return next && next.startsWith("/") && !next.startsWith("//") ? next : undefined;
+}
 
 /** Live demo of the real template, hosted on Netlify as forgekitt-<slug>. */
 export function getPreviewUrl(slug: string) {
