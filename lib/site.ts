@@ -3,7 +3,7 @@
 export const site = {
   name: "Forge",
   legalName: process.env.NEXT_PUBLIC_LEGAL_NAME?.trim() || "Forge",
-  email: process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() || "hello@forgekitt.com",
+  email: process.env.NEXT_PUBLIC_SUPPORT_EMAIL?.trim() || "cradlepremiernetwork@gmail.com",
   location: process.env.NEXT_PUBLIC_BUSINESS_LOCATION?.trim() || "Accra, Ghana",
   youtube: "https://www.youtube.com/@supereasydevs",
   x: "https://x.com/eshunyhaw",
