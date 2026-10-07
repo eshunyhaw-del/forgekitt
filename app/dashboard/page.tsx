@@ -8,6 +8,7 @@ import { formatPrice, templates } from "@/lib/templates";
 import { createClient } from "@/lib/supabase/server";
 import { hasSupabaseEnv } from "@/lib/supabase/env";
 import { DownloadButton } from "@/components/download-button";
+import { AcademyCallout } from "@/components/academy-callout";
 import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
@@ -49,6 +50,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
       <section className="dashboard-body light-section">
         {!configured && <div className="setup-notice" role="status"><strong>We&apos;re just getting things ready</strong><span>Your library will be available in a moment. Please check back shortly.</span></div>}
         {query.payment === "success" && <div className="setup-notice success" role="status"><strong>Payment confirmed</strong><span>Your template is now available below.</span></div>}
+        {query.payment === "success" ? <AcademyCallout highlight /> : owned.length > 0 && <AcademyCallout />}
         {query.payment === "pending" && <div className="setup-notice" role="status"><strong>Payment is processing</strong><span>Refresh shortly. Paystack will confirm it securely.</span></div>}
         <div className="dashboard-meta">
           <span>{owned.length} template{owned.length === 1 ? "" : "s"}</span>

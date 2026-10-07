@@ -14,7 +14,7 @@ export function SiteFooter() {
         </div>
         <div className="footer-links">
           <div><span>Explore</span><Link href="/">All templates</Link><Link href="/?price=free">Free templates</Link><Link href="/?price=paid">Premium templates</Link></div>
-          <div><span>Company</span><Link href="/about">About</Link><Link href="/contact">Contact</Link><Link href="/dashboard">My library</Link></div>
+          <div><span>Company</span><Link href="/about">About</Link><Link href="/academy">Academy</Link><Link href="/contact">Contact</Link><Link href="/dashboard">My library</Link></div>
           <div><span>Follow</span><a href={site.youtube} target="_blank" rel="noopener noreferrer me">YouTube</a><a href={site.x} target="_blank" rel="noopener noreferrer me">X (Twitter)</a></div>
           <div><span>Legal</span><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><Link href="/license">Licence</Link><Link href="/refunds">Refunds</Link></div>
         </div>
