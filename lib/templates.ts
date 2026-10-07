@@ -14,6 +14,8 @@ export type Template = {
   pages: string[];
   featured?: boolean;
   new?: boolean;
+  /** Live demo URL when it is not https://forgekitt-<slug>.netlify.app. */
+  previewUrl?: string;
 };
 
 export const templates: Template[] = [
@@ -123,6 +125,118 @@ export const templates: Template[] = [
     image: "/previews/software-dev-portfolio.jpg", video: "/previews/software-dev-portfolio.mp4", accent: "#5eead4",
     pages: ["Home", "Work", "Case study", "Services", "About", "Resume", "Writing", "Contact"],
   },
+  {
+    slug: "japanese-restaurant", title: "Japanese Restaurant", category: "Editorial", industry: "Restaurants & Food", stack: "Astro", price: 999,
+    description: "A video-led website for a charcoal-grill restaurant, with menu, gallery and reservations.",
+    image: "/previews/japanese-restaurant.jpg", video: "/previews/japanese-restaurant.mp4", accent: "#c4551f",
+    pages: ["Home", "About", "Menu", "Gallery", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-japanese-restaurant-demo.netlify.app",
+  },
+  {
+    slug: "pizza-restaurant", title: "Pizza Restaurant", category: "E-commerce", industry: "Restaurants & Food", stack: "Astro", price: 999,
+    description: "A bold, colourful website for a family pizza restaurant with online ordering, menu and locations.",
+    image: "/previews/pizza-restaurant.jpg", video: "/previews/pizza-restaurant.mp4", accent: "#e85d04",
+    pages: ["Home", "Our story", "Menu", "Gallery", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-pizza-restaurant-demo.netlify.app",
+  },
+  {
+    slug: "fine-dining-restaurants", title: "Fine Dining Restaurant Group", category: "Editorial", industry: "Restaurants & Food", stack: "Astro", price: 999,
+    description: "An elegant multi-venue restaurant group website with seasonal menus, private dining and gift vouchers.",
+    image: "/previews/fine-dining-restaurants.jpg", video: "/previews/fine-dining-restaurants.mp4", accent: "#a8895b",
+    pages: ["Home", "About", "Restaurants", "Gallery", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-fine-dining-restaurants-demo.netlify.app",
+  },
+  {
+    slug: "content-creative-studio", title: "Content & Creative Studio", category: "Studio", industry: "Marketing & Advertising", stack: "Astro", price: 999,
+    description: "A cinematic studio website for a content house and social media partner, with video-led work sections.",
+    image: "/previews/content-creative-studio.jpg", video: "/previews/content-creative-studio.mp4", accent: "#7aa6b8",
+    pages: ["Home", "About", "Services", "Work", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-content-creative-studio-demo.netlify.app",
+  },
+  {
+    slug: "property-developer", title: "Property Developer", category: "Agency", industry: "Real Estate & Land", stack: "Astro", price: 999,
+    description: "A neighbourhood-led property developer website for homes, workplaces and resident community.",
+    image: "/previews/property-developer.jpg", video: "/previews/property-developer.mp4", accent: "#4f7a63",
+    pages: ["Home", "About", "Neighbourhoods", "Gallery", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-property-developer-demo.netlify.app",
+  },
+  {
+    slug: "custom-home-builder", title: "Custom Home Builder", category: "Agency", industry: "Construction & Trades", stack: "Astro", price: 999,
+    description: "A confident website for a custom home builder with projects, process, journal and enquiry pages.",
+    image: "/previews/custom-home-builder.jpg", video: "/previews/custom-home-builder.mp4", accent: "#8aa66c",
+    pages: ["Home", "About", "Projects", "Gallery", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-custom-home-builder-demo.netlify.app",
+  },
+  {
+    slug: "artisan-bakery-cafe", title: "Bakery & Cafe Chain", category: "E-commerce", industry: "Bakery & Pastry", stack: "Astro", price: 499,
+    description: "A warm bakery and cafe chain website with menu, locations, catering and online ordering.",
+    image: "/previews/artisan-bakery-cafe.jpg", video: "/previews/artisan-bakery-cafe.mp4", accent: "#a9783d",
+    pages: ["Home", "Our story", "Menu", "Gallery", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-bakery-cafe-demo.netlify.app",
+  },
+  {
+    slug: "natural-skincare-shop", title: "Natural Skincare Shop", category: "E-commerce", industry: "Retail & E-commerce", stack: "Astro", price: 999,
+    description: "A clean online shop layout for natural skincare and baby care, with collections, workshops and journal.",
+    image: "/previews/natural-skincare-shop.jpg", video: "/previews/natural-skincare-shop.mp4", accent: "#c98f7d",
+    pages: ["Home", "About", "Shop", "Journal", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-natural-skincare-shop-demo.netlify.app",
+  },
+  {
+    slug: "boutique-hotel", title: "Boutique Hotel Collection", category: "Editorial", industry: "Hotels & Hospitality", stack: "Astro", price: 999,
+    description: "A refined boutique hotel website with rooms and suites, restaurant, spa and booking links.",
+    image: "/previews/boutique-hotel.jpg", video: "/previews/boutique-hotel.mp4", accent: "#7f6b4c",
+    pages: ["Home", "About", "Rooms", "Gallery", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-boutique-hotel-demo.netlify.app",
+  },
+  {
+    slug: "hotel-group", title: "City Hotel Group", category: "Editorial", industry: "Hotels & Hospitality", stack: "Astro", price: 999,
+    description: "A design-led city hotel group website with hotel pages, offers, dining and meetings.",
+    image: "/previews/hotel-group.jpg", video: "/previews/hotel-group.mp4", accent: "#c08a3e",
+    pages: ["Home", "About", "Hotels", "Gallery", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-hotel-group-demo.netlify.app",
+  },
+  {
+    slug: "architecture-practice", title: "Architecture Practice", category: "Studio", industry: "Architecture & Interiors", stack: "Astro", price: 999,
+    description: "A calm, image-led architecture practice website with projects, press and studio pages.",
+    image: "/previews/architecture-practice.jpg", video: "/previews/architecture-practice.mp4", accent: "#9b2c1f",
+    pages: ["Home", "About", "Projects", "Gallery", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-architecture-studio-demo.netlify.app",
+  },
+  {
+    slug: "interior-design-studio", title: "Interior Design Studio", category: "Studio", industry: "Architecture & Interiors", stack: "Astro", price: 499,
+    description: "A typographic interior design studio website for hospitality and residential projects.",
+    image: "/previews/interior-design-studio.jpg", video: "/previews/interior-design-studio.mp4", accent: "#6b5d4a",
+    pages: ["Home", "About us", "Projects", "Gallery", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-interior-design-studio-demo.netlify.app",
+  },
+  {
+    slug: "creative-developer-portfolio", title: "Creative Developer Portfolio", category: "Portfolio", industry: "Creative & Portfolio", stack: "Astro", price: 499,
+    description: "An immersive WebGL portfolio for a creative developer with animated project pages.",
+    image: "/previews/creative-developer-portfolio.jpg", video: "/previews/creative-developer-portfolio.mp4", accent: "#ff5a1f",
+    pages: ["One immersive scroll with project pages"],
+    new: true,
+    previewUrl: "https://forgekitt-creative-developer-portfolio-demo.netlify.app",
+  },
+  {
+    slug: "lidar-drone-inspection", title: "LiDAR Drone Product Demo", category: "SaaS", industry: "Technology & SaaS", stack: "Astro", price: 999,
+    description: "A scroll-driven 3D product demo for a drone or hardware product, with animated sections.",
+    image: "/previews/lidar-drone-inspection.jpg", video: "/previews/lidar-drone-inspection.mp4", accent: "#ff6a1f",
+    pages: ["One long 3D scroll page"],
+    new: true,
+    previewUrl: "https://forgekitt-lidar-drone-inspection-demo.netlify.app",
+  },
 ];
 
 /** The template a visitor was looking at, from a ?next=/templates/<slug> sign-in redirect. */
@@ -138,7 +252,7 @@ export function safeNextPath(next?: string) {
 
 /** Live demo of the real template, hosted on Netlify as forgekitt-<slug>. */
 export function getPreviewUrl(slug: string) {
-  return `https://forgekitt-${slug}.netlify.app`;
+  return getTemplate(slug)?.previewUrl ?? `https://forgekitt-${slug}.netlify.app`;
 }
 
 export function getTemplate(slug: string) {

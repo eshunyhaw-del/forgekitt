@@ -36,6 +36,20 @@ const T = {
   "film-studio": { dir: "meridian-film-studio", out: "dist", settle: 5000 },
   "bakery-cafe": { dir: "sweet-crumb-bakery", out: "" },
   "home-energy": { dir: "voltara-home-energy", out: "dist", settle: 2500 },
+  "japanese-restaurant": { dir: "japanese-restaurant-astro", out: "dist", settle: 3000 },
+  "pizza-restaurant": { dir: "pizza-restaurant-astro", out: "dist", settle: 3000 },
+  "fine-dining-restaurants": { dir: "fine-dining-restaurants-astro", out: "dist", settle: 3000 },
+  "content-creative-studio": { dir: "content-creative-studio-astro", out: "dist", settle: 4000 },
+  "property-developer": { dir: "property-developer-astro", out: "dist", settle: 3000 },
+  "custom-home-builder": { dir: "custom-home-builder-astro", out: "dist", settle: 3000 },
+  "artisan-bakery-cafe": { dir: "bakery-cafe-astro", out: "dist", settle: 2500 },
+  "natural-skincare-shop": { dir: "natural-skincare-shop-astro", out: "dist", settle: 3000 },
+  "boutique-hotel": { dir: "boutique-hotel-astro", out: "dist", settle: 3000 },
+  "hotel-group": { dir: "hotel-group-astro", out: "dist", settle: 3000 },
+  "architecture-practice": { dir: "architecture-studio-astro", out: "dist", settle: 3000 },
+  "interior-design-studio": { dir: "interior-design-studio-astro", out: "dist", settle: 3000 },
+  "creative-developer-portfolio": { dir: "creative-developer-portfolio-astro", out: "dist", settle: 4000, spa: true },
+  "lidar-drone-inspection": { dir: "lidar-drone-inspection-astro", out: "dist", settle: 5000 },
 };
 
 const MIME = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".mjs": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".avif": "image/avif", ".gif": "image/gif", ".mp4": "video/mp4", ".webm": "video/webm", ".woff2": "font/woff2", ".woff": "font/woff", ".ttf": "font/ttf", ".otf": "font/otf", ".ico": "image/x-icon", ".xml": "application/xml", ".txt": "text/plain", ".pdf": "application/pdf" };
