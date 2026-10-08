@@ -350,7 +350,7 @@ export const templates: Template[] = [
     previewUrl: "https://softly-template.modulify.website/",
   },
   {
-    slug: "cinematic-video-landing", title: "Cinematic Video Landing Page", category: "Studio", industry: "Media & Publishing", stack: "Astro", price: 1,
+    slug: "cinematic-video-landing", title: "Cinematic Video Landing Page", category: "Studio", industry: "Media & Publishing", stack: "Astro", price: 499,
     description: "A one-page landing page with a full-screen looping hero video, an animated headline and a night-sky mood, ready for a newsletter, label or creative project.",
     image: "/previews/cinematic-video-landing.jpg", video: "/previews/cinematic-video-landing.mp4", accent: "#e8743b",
     pages: ["One page"],
