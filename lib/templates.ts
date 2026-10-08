@@ -421,6 +421,14 @@ export const templates: Template[] = [
     new: true,
     previewUrl: "https://drag-gallery-template.modulify.website/",
   },
+  {
+    slug: "private-ai-company", title: "Private AI Company Website", category: "SaaS", industry: "Technology & SaaS", stack: "Astro", price: 999,
+    description: "A four-page website for an enterprise AI company, with a bold hero, features, showcase, team and insights sections, a contact form and e-mail sign-up.",
+    image: "/previews/private-ai-company.jpg", video: "/previews/private-ai-company.mp4", accent: "#e9a56b",
+    pages: ["Home", "Features", "About", "Contact"],
+    new: true,
+    previewUrl: "https://ryven-template.modulify.website/",
+  },
 ];
 
 /** The template a visitor was looking at, from a ?next=/templates/<slug> sign-in redirect. */
