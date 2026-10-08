@@ -50,6 +50,19 @@ const T = {
   "interior-design-studio": { dir: "interior-design-studio-astro", out: "dist", settle: 3000 },
   "creative-developer-portfolio": { dir: "creative-developer-portfolio-astro", out: "dist", settle: 4000, spa: true },
   "lidar-drone-inspection": { dir: "lidar-drone-inspection-astro", out: "dist", settle: 5000 },
+  "software-studio": { dir: "onda-software-studio-astro", out: "dist", settle: 4000 },
+  "headphone-product-launch": { dir: "onde-one-studio-astro", out: "dist", settle: 6000 },
+  "architect-portfolio": { dir: "architecture-studio-site-astro", out: "dist", settle: 3500 },
+  "photography-portfolio": { dir: "morph-astro", out: "dist", settle: 5000 },
+  "golf-resort": { dir: "morrow-golf-park-astro", out: "dist", settle: 3500 },
+  "glass-lens-studio": { dir: "loupe-astro", out: "dist", settle: 4000 },
+  "brand-motion-designer": { dir: "anny-brand-motion-astro", out: "dist", settle: 3500 },
+  "fintech-card-showcase": { dir: "revolver-astro", out: "dist", settle: 4500 },
+  "aurora-ribbon-hero": { dir: "aurora-astro", out: "dist", settle: 7000 },
+  "fashion-clothing-store": { dir: "milano-astro", out: "dist", settle: 4500 },
+  "tech-consulting-studio": { dir: "galway-astro", out: "dist", settle: 4500 },
+  "fashion-lookbook": { dir: "boutique-astro", out: "dist", settle: 8000 },
+  "architecture-archive-studio": { dir: "tecton-arch-astro", out: "dist", settle: 3500 },
 };
 
 const MIME = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".mjs": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".avif": "image/avif", ".gif": "image/gif", ".mp4": "video/mp4", ".webm": "video/webm", ".woff2": "font/woff2", ".woff": "font/woff", ".ttf": "font/ttf", ".otf": "font/otf", ".ico": "image/x-icon", ".xml": "application/xml", ".txt": "text/plain", ".pdf": "application/pdf" };
