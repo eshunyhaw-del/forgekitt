@@ -63,6 +63,16 @@ const T = {
   "tech-consulting-studio": { dir: "galway-astro", out: "dist", settle: 4500 },
   "fashion-lookbook": { dir: "boutique-astro", out: "dist", settle: 8000 },
   "architecture-archive-studio": { dir: "tecton-arch-astro", out: "dist", settle: 3500 },
+  "balm-product-showcase": { dir: "softly-astro", out: "dist", settle: 6000 },
+  "cinematic-video-landing": { dir: "aster-astro", out: "dist", settle: 6000 },
+  "building-intelligence-studio": { dir: "norrvik-astro", out: "dist", settle: 7000 },
+  "digital-artist-portfolio": { dir: "selora-astro", out: "dist", settle: 5000 },
+  "minimal-skincare-brand": { dir: "nuvea-astro", out: "dist", settle: 5000 },
+  "art-direction-studio": { dir: "terra-astro", out: "dist", settle: 7000 },
+  "conference-event-website": { dir: "metric-astro", out: "dist", settle: 5000 },
+  "infinite-photography-reel": { dir: "portfolio-photographer-astro", out: "dist", settle: 6000 },
+  "ai-automation-consultancy": { dir: "cortex-astro", out: "dist", settle: 5000 },
+  "sneaker-fan-carousel": { dir: "drag-gallery-astro", out: "dist", settle: 4500 },
 };
 
 const MIME = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".mjs": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".avif": "image/avif", ".gif": "image/gif", ".mp4": "video/mp4", ".webm": "video/webm", ".woff2": "font/woff2", ".woff": "font/woff", ".ttf": "font/ttf", ".otf": "font/otf", ".ico": "image/x-icon", ".xml": "application/xml", ".txt": "text/plain", ".pdf": "application/pdf" };
