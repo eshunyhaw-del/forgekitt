@@ -49,7 +49,7 @@ const T = {
   "architecture-practice": { dir: "architecture-studio-astro", out: "dist", settle: 3000 },
   "interior-design-studio": { dir: "interior-design-studio-astro", out: "dist", settle: 3000 },
   "creative-developer-portfolio": { dir: "creative-developer-portfolio-astro", out: "dist", settle: 4000, spa: true },
-  "lidar-drone-inspection": { dir: "lidar-drone-inspection-astro", out: "dist", settle: 5000 },
+  "lidar-drone-inspection": { dir: "lidar-drone-inspection-astro", out: "dist", settle: 11000 },
   "software-studio": { dir: "onda-software-studio-astro", out: "dist", settle: 4000 },
   "headphone-product-launch": { dir: "onde-one-studio-astro", out: "dist", settle: 6000 },
   "architect-portfolio": { dir: "architecture-studio-site-astro", out: "dist", settle: 3500 },
