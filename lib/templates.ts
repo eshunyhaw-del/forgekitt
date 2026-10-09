@@ -36,14 +36,6 @@ export const templates: Template[] = [
     previewUrl: "https://forgekitt-luxury-hotel.pages.dev/",
   },
   {
-    slug: "home-energy", title: "Home Energy Company", category: "Agency", industry: "Energy & Solar", stack: "Astro", price: 999,
-    description: "A scroll-choreographed landing page for home batteries, solar and energy products.",
-    image: "/previews/home-energy.jpg", video: "/previews/home-energy.mp4", accent: "#f5c518",
-    pages: ["One long scroll page"],
-    featured: true, new: true,
-    previewUrl: "https://forgekitt-home-energy.pages.dev/",
-  },
-  {
     slug: "bakery-cafe", title: "Bakery & Cafe", category: "E-commerce", industry: "Bakery & Pastry", stack: "Vanilla JS", price: 0,
     description: "A four-page website for cakes, pastries, bread and custom orders, in plain HTML, CSS and JavaScript.",
     image: "/previews/bakery-cafe.jpg", video: "/previews/bakery-cafe.mp4", accent: "#c08457",
