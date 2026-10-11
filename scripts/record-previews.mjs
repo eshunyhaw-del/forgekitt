@@ -80,6 +80,7 @@ const T = {
   "portfolio-blog": { dir: "portfolio-astro", out: "dist", settle: 4000 },
   "developer-tool-landing": { dir: "devtool-astro", out: "dist", settle: 4000 },
   "product-changelog": { dir: "changelog-astro", out: "dist", settle: 4000 },
+  "design-build-studio": { dir: "scandiwest-astro", out: "dist", settle: 5000 },
   "sneaker-fan-carousel": { dir: "drag-gallery-astro", out: "dist", settle: 4500 },
   "private-ai-company": { dir: "ryven-astro", out: "dist", settle: 5000 },
 };

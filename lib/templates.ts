@@ -406,6 +406,14 @@ export const templates: Template[] = [
     new: true,
     previewUrl: "https://forgekitt-product-changelog.eshunyhaw.workers.dev/",
   },
+  {
+    slug: "design-build-studio", title: "Design-Build Studio", category: "Studio", industry: "Architecture & Design-Build", stack: "Astro", price: 999,
+    description: "A warm, minimal one-page site for an architecture and design-build studio with a project slider, services, process, testimonials and FAQ, plus terms and privacy pages.",
+    image: "/previews/design-build-studio.jpg", video: "/previews/design-build-studio.mp4", accent: "#8a7a63",
+    pages: ["Home", "Terms of Use", "Privacy Policy"],
+    new: true,
+    previewUrl: "https://forgekitt-design-build-studio.eshunyhaw.workers.dev/",
+  },
 ];
 
 /** The template a visitor was looking at, from a ?next=/templates/<slug> sign-in redirect. */
