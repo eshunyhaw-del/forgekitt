@@ -3,7 +3,7 @@ export type Template = {
   title: string;
   category: "SaaS" | "Portfolio" | "E-commerce" | "Studio" | "Editorial" | "Agency";
   industry: string;
-  stack: "React · Vite" | "React · Vite · Tailwind" | "Astro" | "Astro · Tailwind" | "Vanilla JS";
+  stack: "React · Vite" | "React · Vite · Tailwind" | "Astro" | "Astro · Tailwind" | "Next.js · Tailwind" | "Vanilla JS";
   price: number;
   description: string;
   /** Poster image shown before the preview video plays. */
@@ -413,6 +413,38 @@ export const templates: Template[] = [
     pages: ["Home", "Terms of Use", "Privacy Policy"],
     new: true,
     previewUrl: "https://forgekitt-design-build-studio.eshunyhaw.workers.dev/",
+  },
+  {
+    slug: "luxury-fragrance", title: "Luxury Fragrance House", category: "E-commerce", industry: "Fragrance & Beauty", stack: "Astro", price: 999,
+    description: "A bright editorial fragrance house with a six-scene scroll film, product pages, journal, working bag and demo checkout, priced in GHS.",
+    image: "/previews/luxury-fragrance.jpg", video: "/previews/luxury-fragrance.mp4", accent: "#6c8178",
+    pages: ["Home film", "Collection", "Product detail", "About", "Journal", "Article", "Contact", "Bag", "Checkout"],
+    new: true,
+    previewUrl: "https://forgekitt-luxury-fragrance.eshunyhaw.workers.dev/",
+  },
+  {
+    slug: "immersive-architecture-studio", title: "Immersive Architecture Studio", category: "Studio", industry: "Architecture & Interiors", stack: "Astro · Tailwind", price: 999,
+    description: "A one-page, scene-by-scene architecture studio site with full-bleed project imagery, a manifesto, services and a closing enquiry.",
+    image: "/previews/immersive-architecture-studio.jpg", video: "/previews/immersive-architecture-studio.mp4", accent: "#c5ff62",
+    pages: ["Hero", "Manifesto", "Philosophy", "Services", "Selected work", "Studio", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-immersive-architecture-studio.eshunyhaw.workers.dev/",
+  },
+  {
+    slug: "luxury-event-production", title: "Luxury Event Production", category: "Editorial", industry: "Events & Experiences", stack: "Astro · Tailwind", price: 999,
+    description: "An immersive site for a luxury event producer with experiences, services, approach, journal and an enquiry form, with view transitions and cinematic motion.",
+    image: "/previews/luxury-event-production.jpg", video: "/previews/luxury-event-production.mp4", accent: "#c6ad85",
+    pages: ["Home", "Experiences", "Experience detail", "Services", "Service detail", "Approach", "Journal", "Article", "About", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-luxury-event-production.eshunyhaw.workers.dev/",
+  },
+  {
+    slug: "immersive-furniture-showroom", title: "Immersive Furniture Showroom", category: "E-commerce", industry: "Furniture & Interiors", stack: "Next.js · Tailwind", price: 999,
+    description: "A six-scene scroll showroom for a furniture maker with a collection, piece pages, an about page and a contact page, built with Next.js and exportable as static HTML.",
+    image: "/previews/immersive-furniture-showroom.jpg", video: "/previews/immersive-furniture-showroom.mp4", accent: "#b8a38e",
+    pages: ["Home (six scenes)", "Collection", "Piece detail", "About", "Contact"],
+    new: true,
+    previewUrl: "https://forgekitt-immersive-furniture-showroom.eshunyhaw.workers.dev/",
   },
 ];
 

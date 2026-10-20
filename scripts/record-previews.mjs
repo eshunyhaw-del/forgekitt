@@ -83,6 +83,10 @@ const T = {
   "design-build-studio": { dir: "scandiwest-astro", out: "dist", settle: 5000 },
   "sneaker-fan-carousel": { dir: "drag-gallery-astro", out: "dist", settle: 4500 },
   "private-ai-company": { dir: "ryven-astro", out: "dist", settle: 5000 },
+  "luxury-fragrance": { dir: "IMMERSIVE WEBSITE/AUREL", out: "dist", settle: 5000 },
+  "immersive-architecture-studio": { dir: "IMMERSIVE WEBSITE/FORMA", out: "dist", settle: 5000 },
+  "luxury-event-production": { dir: "IMMERSIVE WEBSITE/MAISON EVEN", out: "dist/client", settle: 5000 },
+  "immersive-furniture-showroom": { dir: "IMMERSIVE WEBSITE/ATELIER", out: "out", settle: 5000 },
 };
 
 const MIME = { ".html": "text/html", ".css": "text/css", ".js": "text/javascript", ".mjs": "text/javascript", ".json": "application/json", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp", ".avif": "image/avif", ".gif": "image/gif", ".mp4": "video/mp4", ".webm": "video/webm", ".woff2": "font/woff2", ".woff": "font/woff", ".ttf": "font/ttf", ".otf": "font/otf", ".ico": "image/x-icon", ".xml": "application/xml", ".txt": "text/plain", ".pdf": "application/pdf" };
