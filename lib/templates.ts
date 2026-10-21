@@ -18,7 +18,14 @@ export type Template = {
   previewUrl?: string;
 };
 
-export const templates: Template[] = [
+/**
+ * Free promotion switch. While true, every template is shown and served as free (price 0).
+ * Original prices stay in the data below. To go back to paid: set this to false AND run
+ * supabase/rollbacks/202610210001_restore_paid_prices.sql so the database matches.
+ */
+export const FREE_FOR_NOW = true;
+
+const catalogue: Template[] = [
   {
     slug: "land-construction", title: "Land & Construction Company", category: "Agency", industry: "Real Estate & Land", stack: "Astro · Tailwind", price: 999,
     description: "A WhatsApp-first website for land sales, serviced plots, surveying, building construction and equipment rentals.",
@@ -447,6 +454,8 @@ export const templates: Template[] = [
     previewUrl: "https://forgekitt-immersive-furniture-showroom.eshunyhaw.workers.dev/",
   },
 ];
+
+export const templates: Template[] = FREE_FOR_NOW ? catalogue.map((t) => ({ ...t, price: 0 })) : catalogue;
 
 /** The template a visitor was looking at, from a ?next=/templates/<slug> sign-in redirect. */
 export function getReturnTemplate(next?: string) {
