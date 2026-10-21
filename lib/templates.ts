@@ -23,7 +23,7 @@ export type Template = {
  * Original prices stay in the data below. To go back to paid: set this to false AND run
  * supabase/rollbacks/202610210001_restore_paid_prices.sql so the database matches.
  */
-export const FREE_FOR_NOW = true;
+export const FREE_FOR_NOW = false;
 
 const catalogue: Template[] = [
   {
