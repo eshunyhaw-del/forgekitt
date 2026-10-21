@@ -65,7 +65,7 @@ export default async function TemplateDetailPage({ params }: Props) {
           <div className="page-list"><h3>What&apos;s included</h3>{template.pages.map((page, index) => <div key={page}><span>{String(index + 1).padStart(2, "0")}</span><strong>{page}</strong><CheckIcon /></div>)}</div>
         </div>
         <aside className="buy-panel">
-          <div><span>{template.price === 0 ? "Free for a limited time" : "One-time purchase"}</span><strong>{formatPrice(template.price)}</strong></div>
+          <div><span>{template.price === 0 ? "Free download" : "One-time purchase"}</span><strong>{formatPrice(template.price)}</strong></div>
           <p>Source code, every page, and a commercial licence for one project.</p>
           <PurchaseButton slug={template.slug} free={template.price === 0} title={template.title} />
           <a className="button button-outline button-wide" href={getPreviewUrl(template.slug)} target="_blank" rel="noopener">Live preview <ArrowUpRight /></a>
