@@ -453,6 +453,22 @@ const catalogue: Template[] = [
     new: true,
     previewUrl: "https://forgekitt-immersive-furniture-showroom.eshunyhaw.workers.dev/",
   },
+  {
+    slug: "womens-fashion-brand", title: "Women's Fashion Brand", category: "E-commerce", industry: "Fashion & Apparel", stack: "Astro", price: 999,
+    description: "A bold, editorial women's fashion site with new arrivals, a shoppable catalogue, collections, size guide, delivery and returns, and a demonstration checkout.",
+    image: "/previews/womens-fashion-brand.jpg", video: "/previews/womens-fashion-brand.mp4", accent: "#a4502c",
+    pages: ["Home", "New Arrivals", "Shop", "Collections", "Our Story", "Contact", "Size Guide", "Delivery & Returns", "FAQs", "Checkout"],
+    new: true,
+    previewUrl: "https://forgekitt-womens-fashion-brand.eshunyhaw.workers.dev/",
+  },
+  {
+    slug: "sanitary-ware-store", title: "Sanitary Ware Store", category: "E-commerce", industry: "Bathroom & Sanitary Ware", stack: "Astro", price: 999,
+    description: "A premium bathroom and sanitary ware storefront with shop, product and collection pages, projects, journal, cart and checkout, plus an optional Django backend for stock and Paystack test payments.",
+    image: "/previews/sanitary-ware-store.jpg", video: "/previews/sanitary-ware-store.mp4", accent: "#1b6b4a",
+    pages: ["Home", "Shop", "Product detail", "Collections", "Projects", "Journal", "About", "FAQs", "Cart", "Checkout", "Order confirmation", "Contact", "Policies"],
+    new: true,
+    previewUrl: "https://forgekitt-sanitary-ware-store.eshunyhaw.workers.dev/",
+  },
 ];
 
 export const templates: Template[] = FREE_FOR_NOW ? catalogue.map((t) => ({ ...t, price: 0 })) : catalogue;
