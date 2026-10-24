@@ -693,6 +693,7 @@ html[data-theme="dark"] .legal-contact a { color: #fff; }
 .academy-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem,4vw,3.5rem) clamp(1.5rem,3vw,3rem); }
 .academy-card { display: flex; flex-direction: column; gap: 1.1rem; min-width: 0; }
 .academy-player { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line-dark); border-radius: 10px; background: #160101; }
+.academy-player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .academy-player video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #160101; }
 .academy-tag { color: var(--brand); font-size: .64rem; font-weight: 650; text-transform: uppercase; letter-spacing: .09em; }
 .academy-info h2 { margin: .5rem 0 .6rem; font-family: var(--font-display); font-size: clamp(1.5rem,2.4vw,2.1rem); font-weight: 400; line-height: 1.05; letter-spacing: -.035em; }

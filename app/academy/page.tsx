@@ -25,10 +25,21 @@ export default function AcademyPage() {
           {academyVideos.map((video, index) => (
             <article className="academy-card" key={video.id}>
               <div className="academy-player">
-                <video controls playsInline preload="none" poster={`/academy/${video.file}.jpg`} aria-label={video.title}>
-                  <source src={`/academy/${video.file}.mp4`} type="video/mp4" />
-                  Your browser cannot play this video. <a href={`/academy/${video.file}.mp4`}>Download it instead</a>.
-                </video>
+                {video.youtubeId ? (
+                  <iframe
+                    src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
+                    title={video.title}
+                    loading="lazy"
+                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  />
+                ) : (
+                  <video controls playsInline preload="none" poster={`/academy/${video.file}.jpg`} aria-label={video.title}>
+                    <source src={`/academy/${video.file}.mp4`} type="video/mp4" />
+                    Your browser cannot play this video. <a href={`/academy/${video.file}.mp4`}>Download it instead</a>.
+                  </video>
+                )}
               </div>
               <div className="academy-info">
                 <span className="academy-tag">{String(index + 1).padStart(2, "0")} · {video.tag} · {video.duration}</span>

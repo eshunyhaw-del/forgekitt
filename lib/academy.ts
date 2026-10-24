@@ -2,6 +2,8 @@ export type AcademyVideo = {
   id: string;
   /** mp4 in /public/academy (also used for the poster: same name with .jpg). */
   file: string;
+  /** When set, the video is embedded from YouTube instead of played from /public/academy. */
+  youtubeId?: string;
   duration: string;
   title: string;
   tag: string;
@@ -11,12 +13,13 @@ export type AcademyVideo = {
 /** Videos shown on /academy, in the order a new buyer should watch them. */
 export const academyVideos: AcademyVideo[] = [
   {
-    id: "zQvneE1oChk",
+    id: "aY2M4OlWbcQ",
     file: "edit-your-website",
-    duration: "21:28",
+    youtubeId: "aY2M4OlWbcQ",
+    duration: "1:01:56",
     title: "How to edit your website template",
     tag: "Start here",
-    description: "Open your downloaded template, change the text, images and colours, and see your changes before you publish.",
+    description: "A complete course on designing your website with Claude and ChatGPT using a ready-made template: change the text, images and colours, and see your changes before you publish.",
   },
   {
     id: "llpNa_p2IIA",
